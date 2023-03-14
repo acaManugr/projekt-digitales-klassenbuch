@@ -7,6 +7,9 @@
         .actions-column {
   width: 235px; /* ändern Sie die Breite nach Bedarf */
 }
+        .email-column {
+  width: 350px; /* ändern Sie die Breite nach Bedarf */
+}
 
     </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -16,7 +19,7 @@
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
   <!-- Brand -->
-  <a class="navbar-brand" href="#">Eintrag</a>
+  <a class="navbar-brand" href="#">Startseite</a>
 
   <!-- Toggler/collapsibe Button -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -35,12 +38,12 @@
 
 <div class ="container">
       <div class = "row">
-        <h1> Einträge </h1>
+        <h1> Teilnehmer </h1>
       </div>
 
       <div class = "row">
         <div class = "col-lg-3">
-          <a th:href = "@{/eintrag/neu}" class = "btn btn-primary btn-sm mb-3"> Eintrag hinzuf&uumlgen</a>
+          <a th:href = "@{/eintrag/neu}" class = "btn btn-primary btn-sm mb-3"> Teilnehmer hinzuf&uumlgen</a>
         </div>
       </div>
 
@@ -49,7 +52,7 @@
         <tr>
           <th> Vorname </th>
           <th> Nachname </th>
-          <th> Email </th>
+          <th class ="email-column"> Email </th>
           <th class ="actions-column"> Actions </th>
         </tr>
         </thead>

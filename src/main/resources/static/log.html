@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href = style.css">
+    <style>
+      /* CSS-Code für die Positionierung des Login-Formulars */
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-image: url("https://www.region-a3.com/wp-content/uploads/2021/02/mischok-Bild-Online.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #f2f2f2;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: none;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        width: 100%;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+
+      .logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 20px;
+      }
+
+      .logo img {
+        height: 100px;
+      }
+    </style>
+    <form method="post" action="/login">
+    <h1>Login</h1>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <input type="submit" value="Submit">
+    </form>
+<script>
+      function login() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+      if (username === "Börny" && password === "1234") {
+        alert("Login erfolgreich!");
+        window.location.href = "/tabelle.html";
+        return true;
+      } else {
+        alert("falscher Benutzername oder Passwort!");
+        return false;
+        }
+      }
+        document.querySelector("form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        login();
+      });
+    </script>
+<body>
+<div class="logo">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8itXY9KkAvjw8hpmYGm16H0_oxekebKT0tULWKwmPKg&s" alt="Mischok Academy-Logo">
+</div>
+</body>
+</html>

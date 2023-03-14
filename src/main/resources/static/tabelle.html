@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Digitales Klassenbuch</title>
+  <style>
+    .input-field{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 5px;
+    }
+
+    body {
+      font-family: sans-serif;
+      background-image: url("https://images.pexels.com/photos/2736497/pexels-photo-2736497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+      background-repeat: no-repeat;
+      background-size: cover;
+     }
+
+   /* Formularfelder */
+    .input-field{
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 5px;
+      width: 20%;
+    }
+    .input-field label{
+      margin-bottom: 5px;
+      font-weight: bold;
+   }
+    .input-field input[type="text"]{
+      border: 1px solid #ccc;
+      padding: 5px;
+      background-image: url("https://media.istockphoto.com/id/912785710/vector/abstract-geometric-white-green-and-gray-color-background-vector-illustration.jpg?s=170667a&w=0&k=20&c=cgMvmWLd5_N2fvxavqkL1bvG0QeWg6jeTKhDTx8NjTU=");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .input-field textarea{
+      background-image: url("https://media.istockphoto.com/id/912785710/vector/abstract-geometric-white-green-and-gray-color-background-vector-illustration.jpg?s=170667a&w=0&k=20&c=cgMvmWLd5_N2fvxavqkL1bvG0QeWg6jeTKhDTx8NjTU=");
+      background-repeat: no-repeat;
+      background-size: cover;
+      border: 1px solid #ccc;
+      padding: 5px;
+      height: 100px;
+      overflow-y: scroll;
+   }
+
+    /* Tabelle */
+    table{
+      background-image: url("https://media.istockphoto.com/id/912785710/vector/abstract-geometric-white-green-and-gray-color-background-vector-illustration.jpg?s=170667a&w=0&k=20&c=cgMvmWLd5_N2fvxavqkL1bvG0QeWg6jeTKhDTx8NjTU=");
+      background-repeat: no-repeat;
+      background-size: cover;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      margin-top: -550px;
+      margin-left: 450px;
+      width: 50%;
+    }
+
+    td, th{
+      border: 1px solid #ccc;
+      padding: 5px;
+      text-align: center;
+    }
+
+    th{
+      background-color: #eee;
+      font-weight: bold;
+    }
+
+    .button-container {
+      position: fixed;
+      bottom: 50px;
+      left: 5.9%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: auto;
+    }
+
+    .add-btn, .delete-btn {
+      display: block;
+      padding: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-out;
+      font-weight: bold;
+      border-radius: 100px;
+      margin-top: 10px;
+      width: 400px;
+      height: 40px;
+    }
+
+    .add-btn {
+      background-color: lightblue;
+      color: white;
+    }
+
+    .add-btn:hover{
+      background-color: blue;
+      margin-width: 50px;
+    }
+
+    .delete-btn{
+      background-color: coral;
+      color: white;
+    }
+
+    .delete-btn:hover{
+      background-color: red;
+    }
+
+    .signature-container {
+      position: absolute;
+      top: 570px;
+      left: 0.6%;
+      width: 400px;
+      height: 200px;
+    }
+
+    #signature-pad {
+      background-image: url("https://media.istockphoto.com/id/912785710/vector/abstract-geometric-white-green-and-gray-color-background-vector-illustration.jpg?s=170667a&w=0&k=20&c=cgMvmWLd5_N2fvxavqkL1bvG0QeWg6jeTKhDTx8NjTU=");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: #fff;
+      border: 1px solid #ccc;
+    }
+
+  </style>
+</head>
+<div class="container">
+  <div class="input-col">
+    <div class="input-field">
+      <label for="fach">Fach:</label>
+      <select name="fach" id="fach">
+        <option value="Systemintegration">Systemintegration</option>
+        <option value="Anwendungsentwicklung">Anwendungsentwicklung</option>
+        <option value="Projektmanagement">Projektmanagement</option>
+        <option value="BWL">BWL</option>
+      </select>
+    </div>
+  </div>
+</div>
+</body>
+
+    <div class="input-field">
+      <label for="ausfall">Ausfall / Vertretung:</label>
+      <input type="text" name="ausfall" id="ausfall">
+    </div>
+
+    <div class="input-field">
+      <label for="lernthema">Lernthema:</label>
+      <input type="text" name="lernthema" id="lernthema">
+    </div>
+
+    <div class="input-field">
+      <label for="aufgabe">Aufgabe:</label>
+      <input type="text" name="aufgabe" id="aufgabe">
+    </div>
+
+    <div class="input-field">
+      <label for="versaeumnisse">Versäumnisse:</label>
+      <input type="text" name="versaeumnisse" id="versaeumnisse">
+    </div>
+
+    <div class="input-field">
+      <label for="verspaetungen">Verspätungen:</label>
+      <input type="text" name="verspaetungen" id="verspaetungen">
+    </div>
+
+    <div class="input-field">
+      <label for="bemerkungen">Bemerkungen:</label>
+      <textarea name="bemerkungen" id="bemerkungen"></textarea>
+    </div>
+
+    <div class="input-field">
+      <label for="unterschrift">Unterschrift:</label>
+      <label name="unterschrift" id="unterschrift"></label>
+    </div>
+
+  <div class="table-col">
+    <table>
+      <thead>
+      <tr>
+        <th>Auswahl</th>
+        <th>Fach</th>
+        <th>Vertretung</th>
+        <th>Lernthema</th>
+        <th>Aufgabe</th>
+        <th>Vers&aumlumnisse</th>
+        <th>Versp&aumltungen</th>
+        <th>Bemerkungen</th>
+        <th>Datum</th>
+        <th>Unterschrift</th>
+      </tr>
+      </thead>
+      <tbody onclick="selectRow(event)">
+      </tbody>
+    </table>
+  </div>
+
+  <div class="button-container">
+    <button class="add-btn">Neue Zeile hinzuf&uuml;gen</button>
+    <button class="delete-btn">Zeile entfernen</button>
+  </div>
+<script>
+
+
+
+    const addBtn = document.querySelector('.add-btn');
+    addBtn.addEventListener('click', addRow);
+
+    function createCheckbox() {
+      const checkboxCell = document.createElement('td');
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.className = 'row-checkbox';
+      checkboxCell.appendChild(checkbox);
+      return checkboxCell;
+    }
+
+    function addRow() {
+      const table = document.querySelector('table');
+      const newRow = document.createElement('tr');
+
+      newRow.appendChild(createCheckbox());
+
+      const fachCell = document.createElement('td');
+      fachCell.textContent = document.querySelector('#fach').value;
+
+      const ausfallCell = document.createElement('td');
+      ausfallCell.textContent = document.querySelector('#ausfall').value;
+
+      const lernthemaCell = document.createElement('td');
+      lernthemaCell.textContent = document.querySelector('#lernthema').value;
+
+      const aufgabeCell = document.createElement('td');
+      aufgabeCell.textContent = document.querySelector('#aufgabe').value;
+
+      const versaeumnisseCell = document.createElement('td');
+      versaeumnisseCell.textContent = document.querySelector('#versaeumnisse').value;
+
+      const verspaetungenCell = document.createElement('td');
+      verspaetungenCell.textContent = document.querySelector('#verspaetungen').value;
+
+      const bemerkungenCell = document.createElement('td');
+      bemerkungenCell.textContent = document.querySelector('#bemerkungen').value;
+
+      const datumCell = document.createElement('td');
+      datumCell.textContent = new Date().toLocaleDateString();
+
+      const unterschriftCell = document.createElement('td');
+
+      // Erstelle das Bild-Element und füge es der Unterschrift-Zelle hinzu
+      const img = document.createElement('img');
+      img.src = signaturePad.toDataURL();
+      unterschriftCell.appendChild(img);
+
+      newRow.appendChild(fachCell);
+      newRow.appendChild(ausfallCell);
+      newRow.appendChild(lernthemaCell);
+      newRow.appendChild(aufgabeCell);
+      newRow.appendChild(versaeumnisseCell);
+      newRow.appendChild(verspaetungenCell);
+      newRow.appendChild(bemerkungenCell);
+      newRow.appendChild(datumCell);
+      newRow.appendChild(unterschriftCell);
+
+      table.querySelector('tbody').appendChild(newRow);
+      clearFields();
+    }
+
+    const deleteButton = document.querySelector('.delete-btn');
+    deleteButton.addEventListener('click', () => {
+      const checkboxes = document.querySelectorAll('.row-checkbox');
+    checkboxes.forEach(checkbox => {
+    if (checkbox.checked) {
+      checkbox.parentNode.parentNode.remove();
+    }
+  });
+});
+    function clearFields(){
+      document.querySelector('#ausfall').value = '';
+      document.querySelector('#lernthema').value = '';
+      document.querySelector('#aufgabe').value = '';
+      document.querySelector('#versaeumnisse').value = '';
+      document.querySelector('#verspaetungen').value = '';
+      document.querySelector('#bemerkungen').value = '';
+      document.querySelector('#fach').value = '';
+      signaturePad.clear();
+    }
+
+  </script>
+<div class="signature-container">
+<canvas id="signature-pad" width="400" height="200"></canvas>
+<input type="hidden" id="signature-input" name="signature">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
+</div>
+<script>
+    var canvas = document.querySelector("#signature-pad");
+    var signaturePad = new SignaturePad(canvas);
+
+    var saveButton = document.querySelector("#save-signature");
+    var signatureInput = document.querySelector("#signature-input");
+
+    saveButton.addEventListener("click", function(event) {
+      var dataURL = signaturePad.toDataURL();
+      var unterschriftImg = document.createElement('img');
+      unterschriftImg.src = dataURL;
+      unterschriftCell.appendChild(unterschriftImg);
+
+    // Setze das Daten-URL als Wert des versteckten Textfelds (damit es beim Absenden des Formulars übermittelt wird)
+    signatureInput.value = dataURL;
+    });
+</script>
+</html>
