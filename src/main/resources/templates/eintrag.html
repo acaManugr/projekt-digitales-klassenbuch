@@ -2,22 +2,55 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Digitales Klassenbuch</title>
+    <style>
+        .actions-column {
+  width: 235px; /* ändern Sie die Breite nach Bedarf */
+}
+
+    </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 
-    <div class ="container">
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Eintrag</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/eintrag}">Eintragsverzeichnis</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class ="container">
       <div class = "row">
         <h1> Einträge </h1>
       </div>
+
+      <div class = "row">
+        <div class = "col-lg-3">
+          <a th:href = "@{/eintrag/neu}" class = "btn btn-primary btn-sm mb-3"> Eintrag hinzuf&uumlgen</a>
+        </div>
+      </div>
+
       <table class = "table table-striped table-bordered">
         <thead class = "table-dark">
         <tr>
           <th> Vorname </th>
           <th> Nachname </th>
           <th> Email </th>
-          <th> Actions </th>
+          <th class ="actions-column"> Actions </th>
         </tr>
         </thead>
         <tbody>
@@ -25,6 +58,13 @@
           <td th:text = "${eintrag.firstName}"></td>
           <td th:text = "${eintrag.lastName}"></td>
           <td th:text = "${eintrag.email}"></td>
+            <td>
+                <a th:href = "@{/eintrag/edit/{id}(id=${eintrag.id})}"
+                    class = "btn btn-primary">Überarbeiten</a>
+
+                <a th:href = "@{/eintrag/{id}(id=${eintrag.id})}"
+                   class = "btn btn-danger">Löschen</a>
+            </td>
         </tr>
         </tbody>
       </table>
