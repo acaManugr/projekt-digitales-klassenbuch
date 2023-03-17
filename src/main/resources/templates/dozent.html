@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Digitales Klassenbuch</title>
+  <style>
+        .actions-column {
+  width: 235px; /* ändern Sie die Breite nach Bedarf */
+}
+        .email-column {
+  width: 350px; /* ändern Sie die Breite nach Bedarf */
+}
+
+         body {
+      font-family: sans-serif;
+      background-image: url("https://images.pexels.com/photos/2736497/pexels-photo-2736497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      }
+
+    </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Startseite</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/eintrag}">Teilnehmerverzeichnis</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/dozent}">Dozentenverzeichnis</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class ="container">
+  <div class = "row">
+    <h1> Dozenten </h1>
+  </div>
+
+  <div class = "row">
+    <div class = "col-lg-3">
+      <a th:href = "@{/dozent/neu}" class = "btn btn-primary btn-sm mb-3"> Dozent hinzuf&uumlgen</a>
+    </div>
+  </div>
+
+  <table class = "table table-striped table-bordered">
+    <thead class = "table-dark">
+    <tr>
+      <th> Vorname </th>
+      <th> Nachname </th>
+      <th class ="email-column"> Email </th>
+      <th class ="actions-column"> Aktionen </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each = "dozent: ${dozent}">
+      <td th:text = "${dozent.firstName}"></td>
+      <td th:text = "${dozent.lastName}"></td>
+      <td th:text = "${dozent.email}"></td>
+      <td>
+        <a th:href = "@{/dozent/edit/{id}(id=${dozent.id})}"
+           class = "btn btn-primary">Überarbeiten</a>
+
+        <a th:href="@{/dozent/{id}(id=${dozent.id})}"
+           class="btn btn-danger"
+           onclick="return confirm('Sind Sie sicher, dass Sie den Eintrag von ${dozent.firstName} ${dozent.lastName} löschen wollen?')">
+          Löschen
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>>

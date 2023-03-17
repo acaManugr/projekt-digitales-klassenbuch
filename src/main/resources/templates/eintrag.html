@@ -15,6 +15,7 @@
       font-family: sans-serif;
       background-image: url("https://images.pexels.com/photos/2736497/pexels-photo-2736497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
       background-repeat: no-repeat;
+      background-attachment: fixed;
       background-size: cover;
       }
 
@@ -37,8 +38,11 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/eintrag}">Eintragsverzeichnis</a>
+        <a class="nav-link" th:href="@{/eintrag}">Teilnehmerverzeichnis</a>
       </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/dozent}">Dozentenverzeichnis</a>
+        </li>
     </ul>
   </div>
 </nav>
@@ -72,8 +76,11 @@
                 <a th:href = "@{/eintrag/edit/{id}(id=${eintrag.id})}"
                     class = "btn btn-primary">Überarbeiten</a>
 
-                <a th:href = "@{/eintrag/{id}(id=${eintrag.id})}"
-                   class = "btn btn-danger">Löschen</a>
+                <a th:href="@{/eintrag/{id}(id=${eintrag.id})}"
+                   class="btn btn-danger"
+                   onclick="return confirm('Sind Sie sicher, dass Sie den Eintrag von ${eintrag.firstName} ${eintrag.lastName} löschen wollen?')">
+                    Löschen
+                </a>
             </td>
         </tr>
         </tbody>

@@ -29,6 +29,13 @@ public class Dozent {
         this.lastName = lastName;
         this.email = email;
     }
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getFirstName() {
         return firstName;
