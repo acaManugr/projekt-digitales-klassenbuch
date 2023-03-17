@@ -5,16 +5,30 @@
   <title>Digitales Klassenbuch</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+
+         body {
+      font-family: sans-serif;
+      background-image: url("https://images.pexels.com/photos/2736497/pexels-photo-2736497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+      background-repeat: no-repeat;
+      background-size: cover;
+     }
+
+     .text-center {
+  margin: 340px auto 0;
+}
+
+    </style>
 </head>
 <body>
 <div class = "container">
-  <div class ="row">
-    <div class = "col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-      <h1 class = "text-center"> Eintrag bearbeiten </h1>
+  <div class ="row justify-content-center">
+    <div class = "col-lg-6 col-md-6 col-sm-6">
+      <h1 class = "text-center"> Teilnehmer bearbeiten </h1>
       <div class = "card-body">
         <form th:action = "@{/eintrag/{id} (id=${eintrag.id})}" th:object = "${eintrag}" method="POST">
           <div class = "form-group">
-            <label> Eintrag Vorname </label>
+            <label> Vorname </label>
             <input
                     type = "text"
                     name = "firstName"
@@ -25,7 +39,7 @@
           </div>
 
           <div class = "form-group">
-            <label> Eintrag Nachname </label>
+            <label> Nachname </label>
             <input
                     type = "text"
                     name = "lastName"
@@ -36,7 +50,7 @@
           </div>
 
           <div class = "form-group">
-            <label> Eintrag Email </label>
+            <label> Email </label>
             <input
                     type = "text"
                     name = "email"
@@ -56,6 +70,5 @@
     </div>
   </div>
 </div>
-
 </body>
 </html>

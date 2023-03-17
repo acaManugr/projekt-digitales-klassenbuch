@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.awt.*;
 import java.sql.Blob;
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "wochentag")
@@ -35,10 +36,13 @@ public class Wochentag {
     private String bemerkungen;
 
     @Column(name = "datum")
-    private Date datum;
+    private LocalDate datum;
 
+    //Unterschrift muss noch hinzugefügt werden!
+    /*
     @Column(name = "unterschrift")
     private Blob unterschrift;
+     */
 
 
     public Wochentag() {
@@ -46,7 +50,7 @@ public class Wochentag {
     }
 
     public Wochentag(String vertretung, String lernthema, String aufgabe, String versäumnisse, String verspätungen,
-                     String bemerkungen, Date datum, Blob unterschrift) {
+                     String bemerkungen, LocalDate datum) {
         super();
         this.vertretung = vertretung;
         this.lernthema = lernthema;
@@ -55,7 +59,6 @@ public class Wochentag {
         this.verspätungen = verspätungen;
         this.bemerkungen = bemerkungen;
         this.datum = datum;
-        this.unterschrift = unterschrift;
     }
 
     public Long getId() {
@@ -114,14 +117,15 @@ public class Wochentag {
         this.bemerkungen = bemerkungen;
     }
 
-    public Date getDatum() {
+    public LocalDate getDatum() {
         return datum;
     }
 
-    public void setDatum(Date datum) {
+    public void setDatum(LocalDate datum) {
         this.datum = datum;
     }
 
+    /*
     public Blob getUnterschrift() {
         return unterschrift;
     }
@@ -129,5 +133,7 @@ public class Wochentag {
     public void setUnterschrift(Blob unterschrift) {
         this.unterschrift = unterschrift;
     }
+
+     */
 
 }

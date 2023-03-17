@@ -16,8 +16,6 @@ public class WochentagServiceImpl implements WochentagService {
         super();
         this.wochentagRepository = wochentagRepository;
     }
-
-    @Override
     public List<Wochentag> getAllWochentage() {
         return wochentagRepository.findAll();
     }
