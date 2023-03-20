@@ -2,9 +2,6 @@ package com.example.digitalesklassenbuch.entity;
 
 import jakarta.persistence.*;
 
-import java.awt.*;
-import java.sql.Blob;
-import java.sql.Date;
 import java.time.LocalDate;
 
 @Entity
@@ -27,10 +24,10 @@ public class Wochentag {
     private String aufgabe;
 
     @Column(name = "versäumnisse")
-    private String versäumnisse;
+    private String versaeumnisse;
 
     @Column(name = "verspätungen")
-    private String verspätungen;
+    private String verspaetungen;
 
     @Column(name = "bemerkungen")
     private String bemerkungen;
@@ -55,8 +52,8 @@ public class Wochentag {
         this.vertretung = vertretung;
         this.lernthema = lernthema;
         this.aufgabe = aufgabe;
-        this.versäumnisse = versäumnisse;
-        this.verspätungen = verspätungen;
+        this.versaeumnisse = versäumnisse;
+        this.verspaetungen = verspätungen;
         this.bemerkungen = bemerkungen;
         this.datum = datum;
     }
@@ -93,20 +90,20 @@ public class Wochentag {
         this.aufgabe = aufgabe;
     }
 
-    public String getVersäumnisse() {
-        return versäumnisse;
+    public String getVersaeumnisse() {
+        return versaeumnisse;
     }
 
-    public void setVersäumnisse(String versäumnisse) {
-        this.versäumnisse = versäumnisse;
+    public void setVersaeumnisse(String versaeumnisse) {
+        this.versaeumnisse = versaeumnisse;
     }
 
-    public String getVerspätungen() {
-        return verspätungen;
+    public String getVerspaetungen() {
+        return verspaetungen;
     }
 
-    public void setVerspätungen(String verspätungen) {
-        this.verspätungen = verspätungen;
+    public void setVerspaetungen(String verspaetungen) {
+        this.verspaetungen = verspaetungen;
     }
 
     public String getBemerkungen() {

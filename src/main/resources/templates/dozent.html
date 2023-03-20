@@ -27,7 +27,7 @@
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
   <!-- Brand -->
-  <a class="navbar-brand" href="#">Startseite</a>
+  <a class="navbar-brand" href="/startseite.html">Startseite</a>
 
   <!-- Toggler/collapsibe Button -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -37,6 +37,9 @@
   <!-- Navbar links -->
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/wochentag}">Eintragsverzeichnis</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" th:href="@{/eintrag}">Teilnehmerverzeichnis</a>
       </li>
@@ -58,7 +61,7 @@
     </div>
   </div>
 
-  <table class = "table table-striped table-bordered">
+  <table class = "table table-dark table-bordered">
     <thead class = "table-dark">
     <tr>
       <th> Vorname </th>
@@ -87,4 +90,4 @@
   </table>
 </div>
 </body>
-</html>>
+</html>

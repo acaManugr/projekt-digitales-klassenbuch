@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Digitales Klassenbuch</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+
+         body {
+      font-family: sans-serif;
+      background-image: url("https://images.pexels.com/photos/2736497/pexels-photo-2736497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+     }
+
+     .text-center {
+  margin: 160px auto 0;
+}
+
+    </style>
+</head>
+<body>
+<div class = "container">
+    <div class ="row justify-content-center">
+        <div class = "col-lg-6 col-md-6 col-sm-6">
+            <h1 class = "text-center"> Eintrag bearbeiten </h1>
+            <div class = "card-body">
+                <form th:action = "@{/wochentag/{id} (id=${wochentag.id})}" th:object = "${wochentag}" method="POST">
+                    <div class = "form-group">
+                        <label> Vertretung </label>
+                        <input
+                                type = "text"
+                                name = "vertretung"
+                                th:field = "*{vertretung}"
+                                class = "form-control"
+                                placeholder= "Gab es eine Vetretung? Wenn ja welche?"
+                        />
+                    </div>
+
+                    <div class = "form-group">
+                        <label> Lernthema </label>
+                        <input
+                                type = "text"
+                                name = "lernthema"
+                                th:field = "*{lernthema}"
+                                class = "form-control"
+                                placeholder= "Was war das heutige Thema?"
+                        />
+                    </div>
+
+                    <div class = "form-group">
+                        <label> Aufgabe </label>
+                        <input
+                                type = "text"
+                                name = "aufgabe"
+                                th:field = "*{aufgabe}"
+                                class = "form-control"
+                                placeholder= "Welche Aufgabe hatten die Teilnehmer?"
+                        />
+                    </div>
+
+                    <div class = "form-group">
+                        <label> Vers&aumlumnisse </label>
+                        <input
+                                type = "text"
+                                name = "versäumnisse"
+                                th:field = "*{versaeumnisse}"
+                                class = "form-control"
+                                placeholder= "Hat jemand gefehlt?"
+                        />
+                    </div>
+
+                    <div class = "form-group">
+                        <label> Versp&aumltungen </label>
+                        <input
+                                type = "text"
+                                name = "verspätungen"
+                                th:field = "*{verspaetungen}"
+                                class = "form-control"
+                                placeholder= "Kam jemand zu spät?"
+                        />
+                    </div>
+
+                    <div class = "form-group">
+                        <label> Bemerkungen </label>
+                        <input
+                                type = "text"
+                                name = "bemerkungen"
+                                th:field = "*{bemerkungen}"
+                                class = "form-control"
+                                placeholder= "Platz für Bemerkungen"
+                        />
+                    </div>
+
+                    <div class = "footer-body">
+                        <button type = "submit" class = "btn btn-primary">
+                            Bestätigen
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
