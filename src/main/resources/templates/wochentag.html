@@ -84,7 +84,7 @@
 
                 <a th:href="@{/wochentag/{id}(id=${wochentag.id})}"
                    class="btn btn-danger"
-                   onclick="return confirm('Sind Sie sicher, dass Sie den Eintrag von ${dozent.firstName} ${dozent.lastName} löschen wollen?')">
+                   th:attr="onclick=|return confirm('Sind Sie sicher, dass Sie den Eintrag vom ${wochentag.datum} löschen möchten?')|">
                     Löschen
                 </a>
             </td>

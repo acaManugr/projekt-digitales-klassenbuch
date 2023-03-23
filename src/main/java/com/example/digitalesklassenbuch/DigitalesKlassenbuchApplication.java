@@ -60,6 +60,8 @@ public class DigitalesKlassenbuchApplication implements CommandLineRunner {
 		Fächer fächer3 = new Fächer("BWL");
 		fächerRepository.save(fächer3);
 
+
+
 		Dozent dozent = new Dozent("Bernhard", "Lang", "bernhard.lang@mischok.academy");
 		dozentRepository.save(dozent);
 		Dozent dozent1 = new Dozent("Matthias", "Hartmann", "matthias.hartmann@dozent.mischok.academy");
@@ -70,6 +72,8 @@ public class DigitalesKlassenbuchApplication implements CommandLineRunner {
 		dozentRepository.save(dozent3);
 		Dozent dozent4 = new Dozent("Kajetan", "Mischok", "kajetan.mischok@dozent.mischok.academy");
 		dozentRepository.save(dozent4);
+
+
 		Dozent dozent5 = new Dozent("Tobias", "Kurz", "tobias.kurtz@dozent.mischok.academy");
 		dozentRepository.save(dozent5);
 		Dozent dozent6 = new Dozent("Shkelzen", "Veliqi", "shkelzen.veliqi@dozent.mischok.academy");
@@ -79,7 +83,10 @@ public class DigitalesKlassenbuchApplication implements CommandLineRunner {
 		Dozent dozent8 = new Dozent("Julius", "Mischok", "julius.mischok@dozent.mischok.academy");
 		dozentRepository.save(dozent8);
 
+/*
 		 */
+
+
 
 	}
 }
