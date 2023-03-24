@@ -62,16 +62,35 @@
       .logo img {
         height: 100px;
       }
+
+.continue-form {
+    position: absolute;
+    top: 600px;
+    left: 825px;
+}
+
+.continue-form button {
+    background-color: #4B6CA6;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
     </style>
-    <form method="post" action="/login">
-    <h1>Login</h1>
+    <form>
         <label for="username">Username:</label>
         <input type="text" id="username" name="username">
         <label for="password">Password:</label>
         <input type="password" id="password" name="password">
         <input type="submit" value="Submit">
     </form>
-<script>
+    <div>
+        <form1 class="continue-form">
+            <a href="/startseite_teilnehmer.html"><button>Als Teilnehmer fortfahren</button></a>
+        </form1>
+    </div>
+
+    <script>
       function login() {
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
@@ -89,6 +108,7 @@
         event.preventDefault();
         login();
       });
+
     </script>
 <body>
 <div class="logo">

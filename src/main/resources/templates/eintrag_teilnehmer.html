@@ -15,8 +15,8 @@
       font-family: sans-serif;
       background-image: url("https://images.pexels.com/photos/2736497/pexels-photo-2736497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
       background-repeat: no-repeat;
-      background-size: cover;
       background-attachment: fixed;
+      background-size: cover;
       }
 
     </style>
@@ -38,13 +38,13 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/wochentag}">Eintragsverzeichnis</a>
+        <a class="nav-link" th:href="@{/wochentag_teilnehmer}">Eintragsverzeichnis</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/eintrag}">Teilnehmerverzeichnis</a>
+        <a class="nav-link" th:href="@{/eintrag_teilnehmer}">Teilnehmerverzeichnis</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/dozent}">Dozentenverzeichnis</a>
+        <a class="nav-link" th:href="@{/dozent_teilnehmer}">Dozentenverzeichnis</a>
       </li>
     </ul>
   </div>
@@ -52,13 +52,7 @@
 
 <div class ="container">
   <div class = "row">
-    <h1> Dozenten </h1>
-  </div>
-
-  <div class = "row">
-    <div class = "col-lg-3">
-      <a th:href = "@{/dozent/neu}" class = "btn btn-primary btn-sm mb-3"> Dozent hinzuf&uumlgen</a>
-    </div>
+    <h1> Teilnehmer </h1>
   </div>
 
   <table class = "table table-dark table-bordered">
@@ -67,27 +61,17 @@
       <th> Vorname </th>
       <th> Nachname </th>
       <th class ="email-column"> Email </th>
-      <th class ="actions-column"> Aktionen </th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each = "dozent: ${dozent}">
-      <td th:text = "${dozent.firstName}"></td>
-      <td th:text = "${dozent.lastName}"></td>
-      <td th:text = "${dozent.email}"></td>
-      <td>
-        <a th:href = "@{/dozent/edit/{id}(id=${dozent.id})}"
-           class = "btn btn-primary">Überarbeiten</a>
-
-        <a th:href="@{/dozent/{id}(id=${dozent.id})}"
-           class="btn btn-danger"
-           th:attr="onclick=|return confirm('Sind Sie sicher, dass Sie den Eintrag von ${dozent.firstName} ${dozent.lastName} löschen möchten?')|">
-          Löschen
-        </a>
-      </td>
+    <tr th:each = "eintrag: ${eintrag}">
+      <td th:text = "${eintrag.firstName}"></td>
+      <td th:text = "${eintrag.lastName}"></td>
+      <td th:text = "${eintrag.email}"></td>
     </tr>
     </tbody>
   </table>
 </div>
+
 </body>
 </html>

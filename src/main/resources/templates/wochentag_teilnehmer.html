@@ -4,12 +4,6 @@
   <meta charset="UTF-8">
   <title>Digitales Klassenbuch</title>
   <style>
-        .actions-column {
-  width: 235px; /* ändern Sie die Breite nach Bedarf */
-}
-        .email-column {
-  width: 350px; /* ändern Sie die Breite nach Bedarf */
-}
 
          body {
       font-family: sans-serif;
@@ -38,13 +32,13 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/wochentag}">Eintragsverzeichnis</a>
+        <a class="nav-link" th:href="@{/wochentag_teilnehmer}">Eintragsverzeichnis</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/eintrag}">Teilnehmerverzeichnis</a>
+        <a class="nav-link" th:href="@{/eintrag_teilnehmer}">Teilnehmerverzeichnis</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/dozent}">Dozentenverzeichnis</a>
+        <a class="nav-link" th:href="@{/dozent_teilnehmer}">Dozentenverzeichnis</a>
       </li>
     </ul>
   </div>
@@ -52,39 +46,30 @@
 
 <div class ="container">
   <div class = "row">
-    <h1> Dozenten </h1>
-  </div>
-
-  <div class = "row">
-    <div class = "col-lg-3">
-      <a th:href = "@{/dozent/neu}" class = "btn btn-primary btn-sm mb-3"> Dozent hinzuf&uumlgen</a>
-    </div>
+    <h1> Einträge </h1>
   </div>
 
   <table class = "table table-dark table-bordered">
     <thead class = "table-dark">
     <tr>
-      <th> Vorname </th>
-      <th> Nachname </th>
-      <th class ="email-column"> Email </th>
-      <th class ="actions-column"> Aktionen </th>
+      <th> Vertretung </th>
+      <th> Lernthema </th>
+      <th> Aufgabe </th>
+      <th> Versäumnisse </th>
+      <th> Verspätungen</th>
+      <th class ="bemerkungen-column"> Bemerkungen </th>
+      <th> Datum </th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each = "dozent: ${dozent}">
-      <td th:text = "${dozent.firstName}"></td>
-      <td th:text = "${dozent.lastName}"></td>
-      <td th:text = "${dozent.email}"></td>
-      <td>
-        <a th:href = "@{/dozent/edit/{id}(id=${dozent.id})}"
-           class = "btn btn-primary">Überarbeiten</a>
-
-        <a th:href="@{/dozent/{id}(id=${dozent.id})}"
-           class="btn btn-danger"
-           th:attr="onclick=|return confirm('Sind Sie sicher, dass Sie den Eintrag von ${dozent.firstName} ${dozent.lastName} löschen möchten?')|">
-          Löschen
-        </a>
-      </td>
+    <tr th:each = "wochentag: ${wochentag}">
+      <td th:text = "${wochentag.vertretung}"></td>
+      <td th:text = "${wochentag.lernthema}"></td>
+      <td th:text = "${wochentag.aufgabe}"></td>
+      <td th:text = "${wochentag.versaeumnisse}"></td>
+      <td th:text = "${wochentag.verspaetungen}"></td>
+      <td th:text = "${wochentag.bemerkungen}"></td>
+      <td th:text = "${wochentag.datum}"></td>
     </tr>
     </tbody>
   </table>

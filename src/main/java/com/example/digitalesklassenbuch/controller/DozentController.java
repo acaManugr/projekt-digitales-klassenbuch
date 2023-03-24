@@ -1,7 +1,6 @@
 package com.example.digitalesklassenbuch.controller;
 
 import com.example.digitalesklassenbuch.entity.Dozent;
-import com.example.digitalesklassenbuch.entity.Eintrag;
 import com.example.digitalesklassenbuch.service.DozentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
